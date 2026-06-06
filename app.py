@@ -93,7 +93,7 @@ Ask questions in plain English and let AI generate SQL
 </h4>
 """, unsafe_allow_html=True)
 
-st.success("⚡ Powered by Google Gemini 2.5 Flash")
+st.success("Developed by Team of Victory Squad")
 
 st.markdown("<br>", unsafe_allow_html=True)
 
@@ -164,7 +164,7 @@ if st.button("Generate Query", use_container_width=True):
     # SHOW SQL
     # --------------------------------------------
 
-    st.subheader("📜 Generated SQL")
+    st.subheader("Generated SQL")
 
     st.code(sql_query, language="sql")
 
