@@ -37,8 +37,8 @@ with st.sidebar:
     • Python 3.11
     • Streamlit
     • SQLite
-    • Ollama
-    • Mistral
+    • Gemini API
+    • Gemini 2.5 Flash
     """)
 
     st.divider()
@@ -50,7 +50,11 @@ with st.sidebar:
 
     ↓
 
-    Mistral AI
+    Gemini 2.5 Flash
+
+    ↓
+
+    SQL Generator
 
     ↓
 
@@ -87,9 +91,11 @@ st.markdown("""
 <h4 style='text-align:center;'>
 Ask questions in plain English and let AI generate SQL
 </h4>
-
-<br>
 """, unsafe_allow_html=True)
+
+st.success("⚡ Powered by Google Gemini 2.5 Flash")
+
+st.markdown("<br>", unsafe_allow_html=True)
 
 # ----------------------------------------------------
 # METRICS
@@ -101,7 +107,7 @@ with col1:
     st.metric("Database", "SQLite")
 
 with col2:
-    st.metric("AI Model", "Mistral")
+    st.metric("AI Model", "Gemini 2.5 Flash")
 
 with col3:
     st.metric("Records", "100+")
@@ -115,20 +121,20 @@ st.divider()
 with st.expander("💡 Sample Questions"):
 
     st.markdown("""
-    - Show all CSE students
+- Show all CSE students
 
-    - Show students with CGPA above 8.5
+- Show students with CGPA above 8.5
 
-    - Count students in ECE
+- Count students in ECE
 
-    - Show top 5 students by CGPA
+- Show top 5 students by CGPA
 
-    - Show final year students
+- Show final year students
 
-    - Show IT students with CGPA above 9
+- Show IT students with CGPA above 9
 
-    - Count students in each department
-    """)
+- Count students in each department
+""")
 
 # ----------------------------------------------------
 # USER INPUT
@@ -150,7 +156,7 @@ if st.button("🚀 Generate Query", use_container_width=True):
         st.warning("Please enter a question.")
         st.stop()
 
-    with st.spinner("Generating SQL using Mistral..."):
+    with st.spinner("Generating SQL using Gemini AI..."):
 
         sql_query = generate_sql(question)
 
@@ -202,7 +208,7 @@ if st.button("🚀 Generate Query", use_container_width=True):
             # AI EXPLANATION
             # ------------------------------------
 
-            st.subheader("🧠 Explanation")
+            st.subheader("🧠 AI Explanation")
 
             st.info(f"""
 Question:
@@ -211,7 +217,7 @@ Question:
 Generated SQL:
 {sql_query}
 
-The query was executed successfully and the matching records were retrieved from the SQLite database.
+Gemini AI converted the natural language question into a valid SQLite query. The query passed the safety validation layer and was executed successfully on the SQLite database.
 """)
 
             # ------------------------------------
@@ -222,7 +228,7 @@ The query was executed successfully and the matching records were retrieved from
 
         else:
 
-            st.error("Failed to execute query.")
+            st.error("❌ Failed to execute query.")
 
     else:
 
@@ -249,5 +255,5 @@ Blocked operations:
 st.divider()
 
 st.caption(
-    "Built using Streamlit + SQLite + Ollama (Mistral)"
+    "Built using Streamlit + SQLite + Gemini 2.5 Flash"
 )
