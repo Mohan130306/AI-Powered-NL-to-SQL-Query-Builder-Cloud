@@ -110,7 +110,7 @@ with col2:
     st.metric("AI Model", "Gemini 2.5 Flash")
 
 with col3:
-    st.metric("Records", "5000+")
+    st.metric("Records", "200+")
 
 st.divider()
 
