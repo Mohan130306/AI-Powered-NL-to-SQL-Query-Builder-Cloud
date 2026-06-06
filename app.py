@@ -28,7 +28,7 @@ if "history" not in st.session_state:
 
 with st.sidebar:
 
-    st.title("🤖 Project Information")
+    st.title(" Project Information")
 
     st.info("""
     AI-Powered NL → SQL Query Builder
@@ -43,7 +43,7 @@ with st.sidebar:
 
     st.divider()
 
-    st.subheader("🏗 Architecture")
+    st.subheader(" Architecture")
 
     st.markdown("""
     User Question
@@ -71,7 +71,7 @@ with st.sidebar:
 
     st.divider()
 
-    st.subheader("🕒 Query History")
+    st.subheader(" Query History")
 
     if st.session_state.history:
         for item in reversed(st.session_state.history):
@@ -85,7 +85,7 @@ with st.sidebar:
 
 st.markdown("""
 <h1 style='text-align:center;color:#4CAF50;'>
-🤖 AI-Powered NL → SQL Query Builder
+ AI-Powered NL → SQL Query Builder
 </h1>
 
 <h4 style='text-align:center;'>
@@ -118,7 +118,7 @@ st.divider()
 # SAMPLE QUESTIONS
 # ----------------------------------------------------
 
-with st.expander("💡 Sample Questions"):
+with st.expander("Sample Questions"):
 
     st.markdown("""
 - Show all CSE students
@@ -150,7 +150,7 @@ question = st.text_area(
 # GENERATE BUTTON
 # ----------------------------------------------------
 
-if st.button("🚀 Generate Query", use_container_width=True):
+if st.button("Generate Query", use_container_width=True):
 
     if not question.strip():
         st.warning("Please enter a question.")
@@ -174,7 +174,7 @@ if st.button("🚀 Generate Query", use_container_width=True):
 
     if is_safe_query(sql_query):
 
-        st.success("✅ Safe Query Approved")
+        st.success("Safe Query Approved")
 
         # ----------------------------------------
         # EXECUTE QUERY
@@ -184,7 +184,7 @@ if st.button("🚀 Generate Query", use_container_width=True):
 
         if result is not None:
 
-            st.subheader("📊 Query Results")
+            st.subheader("Query Results")
 
             st.dataframe(
                 result,
@@ -198,7 +198,7 @@ if st.button("🚀 Generate Query", use_container_width=True):
             csv = result.to_csv(index=False)
 
             st.download_button(
-                label="📥 Download Results as CSV",
+                label="Download Results as CSV",
                 data=csv,
                 file_name="query_results.csv",
                 mime="text/csv"
@@ -208,7 +208,7 @@ if st.button("🚀 Generate Query", use_container_width=True):
             # AI EXPLANATION
             # ------------------------------------
 
-            st.subheader("🧠 AI Explanation")
+            st.subheader("AI Explanation")
 
             st.info(f"""
 Question:
